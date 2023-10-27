@@ -2,6 +2,17 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'validations' do
+    it 'validates name presence' do
+      user = User.new(
+        name: '',
+        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+        bio: 'test_bio',
+        posts_counter: 1
+      )
+      expect(user).to_not be_valid
+      expect(user.errors[:name]).to include("can't be blank")
+    end
+    
     it 'validates post_counter is an integer' do
       user = User.new(
         name: 'user1',
