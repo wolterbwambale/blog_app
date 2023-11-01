@@ -1,2 +1,43 @@
-<h1>list of user</h1>
+<head>
+  <%= stylesheet_link_tag 'user', media: 'all', 'data-turbolinks-track': 'reload' %>
+</head>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- User's name and photo container with custom styles -->
+        <div class="user-info-container">
+          <!-- Display user's photo if available with custom style class -->
+          <% if @user.photo.present? %>
+            <%= image_tag @user.photo, class: 'user-photo' %>
+          <% end %>
+
+          <!-- Display user's name with custom style class -->
+          <div class="user-name"><%= @user.name %></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bio-section">
+        <h2 class="bio-header">Bio:</h2>
+        <p class="bio-text"><%= @user.bio %></p>
+      </div>
+
+    <h2 class="mt-4">Posts</h2>
+    <ul class="list-group">
+      <% if @user.posts.empty? %>
+        <li class="list-group-item">No posts for this user</li>
+      <% else %>
+        <% @user.recent_posts.each do |post| %>
+          <%= render post %>
+        <% end %>
+      <% end %>
+    </ul>
+
+    <!-- "See All Posts" button -->
+    <div class="button-container">
+      <button><a href="<%= user_posts_path(@user) %>">See all posts</a></button>
+    </div>
+  </div>
+
+
 
