@@ -1,0 +1,17 @@
+<header>
+  <%= stylesheet_link_tag 'user', media: 'all', 'data-turbolinks-track': 'reload' %>
+</header>
+<body>
+  <div id="user">
+    <% if @user.present? %>
+      <article id="user-details">
+        <h1><%= @user.name %></h1>
+        <p>Number of posts: <%= @user.posts_counter.nil? ? 0 : @user.posts_counter %></p>
+      </article>
+    <% end %>
+    <% if @user&.photo.present? %>
+      <img id="user-image" src="<%= @user.photo %>" alt="User Photo">
+    <% end %>
+  </div>
+  </div>
+</body>

@@ -1,1 +1,19 @@
-<h1>Here is a list of user</h1>
+<header>
+<%= stylesheet_link_tag 'user', media: 'all', 'data-turbolinks-track': 'reload' %>
+</header>
+<ul class="list-group">
+  <% @users.each do |user| %>
+    <li class="list-group-item">
+      <% if user.photo.present? %>
+        <%= image_tag user.photo, class: 'user-photo' %>
+      <% end %>
+
+      <!-- Display user's username -->
+      <span class="user-username"><%= user.name %></span>
+      <span class="user-posts-count"> Number of posts<%= user.posts.count%></span>
+
+      <!-- Add a link to the user's profile -->
+      <%= link_to 'View Profile', user_path(user), class: 'btn btn-primary' %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,94 @@
+body {
+  margin: 3rem 2rem;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+}
+
+.user-info-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid #000;
+}
+
+.user-photo {
+  max-width: 402px;
+  border-radius: 50%;
+  margin-right: 50px;
+  height: 155px;
+}
+
+.user-name {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.user-posts-count {
+  margin-left: 62%;
+}
+
+.bio-section {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.bio-header {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.bio-text {
+  font-size: 16px;
+}
+
+.list-group-item {
+  border: none;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  list-style: none;
+}
+
+.list-group-item p {
+  margin: 0;
+}
+
+.post-details {
+  float: right;
+  font-size: 14px;
+}
+
+.comments-count,
+.likes-count {
+  margin-left: 10px; /* Add space between comments and likes counts */
+}
+
+/* "See All Posts" button styles */
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+ul li {
+  text-decoration: none;
+}
