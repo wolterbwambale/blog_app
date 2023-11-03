@@ -92,3 +92,75 @@ button:hover {
 ul li {
   text-decoration: none;
 }
+
+.comments {
+  margin-top: 10px;
+}
+
+.comment {
+  margin-bottom: 10px;
+}
+
+#view-p a {
+  color: #007bff;
+}
+
+.success-message {
+  color: #00a000;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.flash {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  text-align: center;
+  color: #00a000;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  padding: 20px;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 60%;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+form input[type="submit"]:hover {
+  background-color: #0056b3;
+}

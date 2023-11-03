@@ -1,0 +1,5 @@
+<%= form_with(model: [post, like], local: true) do |form| %>
+  <div class="actions">
+    <%= form.submit "Like", class: "submit_button" %>
+  </div>
+<% end %>
