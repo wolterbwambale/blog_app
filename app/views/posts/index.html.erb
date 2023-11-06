@@ -1,5 +1,5 @@
 <%= render 'users/user' %>
-<% @posts.each do |post| %>
+<% @posts.includes(:author).each do |post| %>
   <a href="<%= user_post_path(post.author, post) %>"><%= render post %></a>
   <%= "no comments for this post" if post.comments.empty? %>
     <div class="comments">
