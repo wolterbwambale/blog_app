@@ -62,5 +62,17 @@ RSpec.describe 'user index view page', type: :system do
         expect(page).to have_content('0', count: 1)
       end
     end
+
+    describe 'click on a user' do
+    before(:example) do
+      visit users_path
+    end
+    it 'redirects to user show page when clicking on user name' do
+      user_link = find("a[href='#{user_path(user1)}']")
+      user_link.click
+      expect(page).to have_current_path(user_path(user1))
+      expect(page).to have_content('test user1')
+      expect(page).to have_content('test_bio1')
+    end
   end
 end
