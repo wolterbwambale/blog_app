@@ -38,4 +38,15 @@ RSpec.describe 'user index view page', type: :system do
       expect(page).to have_content('test user2')
       expect(page).to have_content('test user3')
     end
+
+    it 'can see profile pictures' do
+      image_urls = [
+        'https://images3.alphacoders.com/103/thumbbig-1035390.webp',
+        'https://images4.alphacoders.com/979/thumbbig-979282.webp',
+        'https://images3.alphacoders.com/821/thumbbig-821251.webp'
+      ]
+      image_urls.each do |url|
+        expect(page).to have_selector("img[src*='#{url}']", visible: :all)
+      end
+    end
 end
