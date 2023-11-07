@@ -49,4 +49,18 @@ RSpec.describe 'user index view page', type: :system do
         expect(page).to have_selector("img[src*='#{url}']", visible: :all)
       end
     end
+
+    it 'can see posts count' do
+      expect(page).to have_selector('li', count: 3) # There are 3 users
+      within('li', text: 'test user1') do
+        expect(page).to have_content('1', count: 1)
+      end
+      within('li', text: 'test user2') do
+        expect(page).to have_content('2', count: 1)
+      end
+      within('li', text: 'test user3') do
+        expect(page).to have_content('0', count: 1)
+      end
+    end
+  end
 end
