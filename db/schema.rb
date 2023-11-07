@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_223404) do
 
   create_table "comments", force: :cascade do |t|
     t.text "text"
-    t.bigint "author_id", null: false
+    t.bigint "author_id"
     t.bigint "post_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_24_223404) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "text"
-    t.bigint "author_id", null: false
+    t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "likes_counter"

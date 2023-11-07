@@ -1,6 +1,6 @@
 <%= render 'users/user' %>
-<% @posts.each do |post| %>
-  <a href="<%= user_post_path(post.author, post) %>"><%= render post %></a>
+<% @posts.includes(:author).each do |post| %>
+  <a href="<%=  user_posts_path(@user, post) %>"><%= render post %></a>
   <%= "no comments for this post" if post.comments.empty? %>
     <div class="comments">
     <% post.recent_comments.each do |comment|%>
