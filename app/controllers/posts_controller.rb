@@ -6,7 +6,12 @@ class PostsController < ApplicationController
   end
 
   def show
+    @user = current_user
     @post = Post.find(params[:id])
+    @comment = Comment.new
+    @like = Like.new
+    cookies[:post_id] = @post.id if @post.present?
+    nil unless @post.nil?
   end
 
   def new
@@ -14,17 +19,31 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.build(post_params)
+    @user = current_user
+    @post = Post.new(post_params.merge(author_id: @user.id))
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+
+      @post.update_posts_count
+
+      redirect_to user_posts_path(@user), notice: 'Post created successfully.'
     else
-      render :new
+      @posts = @user.posts
+      render :index
     end
+  end
+
+  def destroy
+    current_user = User.find(params[:author_id])
+    @post = Post.find(params[:id])
+    authorize! :destroy, @post
+    @post.destroy
+    @post.decrement_posts_count
+    redirect_to user_posts_path(current_user), notice: 'Post deleted successfully.'
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :text)
+    params.require(:post).permit(:title, :text, :author_id, :comments_counter, :likes_counter)
   end
 end
