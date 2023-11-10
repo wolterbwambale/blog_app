@@ -1,11 +1,9 @@
 class LikesController < ApplicationController
   def create
-    @current = current_user
-    @post = Post.find(params[:post_id])
-    @like = @post.likes.build(user_id: @current.id)
-
-    puts @current.id
-    puts @post.id
+    @post = Post.find(params[:id])
+    @like = Like.new(author_id: current_user.id, post_id: @post.id)
+    @like.update_post_likes_counter
+    redirect_to user_post_path(@post), notice: 'Post liked successfully.'
 
     respond_to do |format|
       format.html do
@@ -16,5 +14,9 @@ class LikesController < ApplicationController
         end
       end
     end
+  end
+
+  def like_params
+    params.require(:like).permit(:author_id, :post_id)
   end
 end
