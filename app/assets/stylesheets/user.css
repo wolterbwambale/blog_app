@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-  width: 80%;
+  margin: 0 auto;
 }
 
 .user-info-container {
@@ -67,6 +67,12 @@ body {
   margin-left: 10px; /* Add space between comments and likes counts */
 }
 
+.alert {
+  color: red;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 /* "See All Posts" button styles */
 .button-container {
   text-align: center;
@@ -126,7 +132,6 @@ h1 {
 }
 
 form {
-  padding: 20px;
   border-radius: 5px;
   margin: 0 auto;
 }
@@ -137,17 +142,22 @@ form label {
   font-weight: bold;
 }
 
-form input[type="text"],
+form input[type="text"] {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 80%;
+}
+
 form textarea {
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  width: 60%;
-}
-
-form textarea {
+  width: 80%;
   resize: vertical;
 }
 
@@ -163,4 +173,66 @@ form input[type="submit"] {
 
 form input[type="submit"]:hover {
   background-color: #0056b3;
+}
+
+#user_email {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 80%;
+}
+
+#user_password_confirmation {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 80%;
+}
+
+#user_password {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 80%;
+}
+
+.actions-login {
+  color: #00a000;
+  align-items: center;
+  display: flex;
+}
+
+#error-messages {
+  color: red;
+  margin-bottom: 20px;
+}
+
+.container-v {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+.card {
+  width: 40%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
