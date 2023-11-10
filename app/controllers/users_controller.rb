@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @post = @user.posts.build
+    @posts = Post.includes(:user).where(author_id: @user.id)
+    cookies[:user_id] = @user.id
   end
 end
