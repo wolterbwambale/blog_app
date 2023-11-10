@@ -13,6 +13,7 @@ gem 'sprockets-rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
+gem 'cancancan'
 # paginate
 gem 'will_paginate', '~> 3.3'
 
