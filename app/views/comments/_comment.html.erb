@@ -1,4 +1,8 @@
 <div class="comment">
-  <p><strong><%= comment.user.name %></strong></p>
-  <p><%= comment.text %></p>
+  <h3>username:<strong><%= comment.user.name %></strong></h3>
+    <p><%= comment.text %></p>
+   <% if can?(:destroy, comment) && @post.present? %>
+    <%= button_to "Delete", [@post, comment], method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure you want to delete this comment" } %>
+  <% end %>
+
 </div>
