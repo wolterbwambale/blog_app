@@ -1,5 +1,5 @@
-class CommentsController < 
-  
+class CommentsController <
+
   def new
     @comment = Comment.new
   end
@@ -21,19 +21,19 @@ class CommentsController <
     end
   end
 
- def destroy
+  def destroy
     @comment = Comment.find(params[:id])
     @post = @comment.post
     if @comment.destroy
       decrement_post_comments_counter(post)
       redirect_to post, notice: 'Comment was successfully destroyed.'
     else
-       redirect_to post, alert: 'Failed to destroy comment.' 
-      end
+      redirect_to post, alert: 'Failed to destroy comment.'
     end
+  end
   #   @comment.destroy
   #   redirect_to post_path(@comment.post), notice: 'Comment was successfully destroyed.'
-  # end 
+  # end
   # private
 
   # def comment_params
