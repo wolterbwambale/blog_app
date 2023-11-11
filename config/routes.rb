@@ -9,5 +9,13 @@ Rails.application.routes.draw do
     resources :likes, only: [:create]
   end
 
+  namespace :api do
+    resources :users do
+       resources :posts, only: [:index] do
+        resources :comments, only: [:index, :create]
+      end
+    end
+  end
+
   root 'users#index'
 end
