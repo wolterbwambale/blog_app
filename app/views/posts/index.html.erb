@@ -1,7 +1,8 @@
 <%= render 'users/user' %>
 <% @posts.includes(:author).each do |post| %>
-  <a href="<%=  user_posts_path(@user, post) %>"><%= render post %></a>
-
+  <a href="<%=  user_posts_path(@user, post) %>">
+  <%= render post %></a>
+  <%= render "posts/new" %>
   <%= "no comments for this post" if post.comments.empty? %>
     <div class="comments">
     <% post.recent_comments.each do |comment|%>
@@ -10,5 +11,6 @@
     </div>
     <p id="view-post"><%= link_to 'View Post', user_post_path(@user, post) %></p>
 <% end %>
+
 
 <%= will_paginate @posts %>
